@@ -19,12 +19,9 @@ const { templateBodyData, templateData } = require('./mockData');
     handlebars.registerPartial('header', headerHtml);
     handlebars.registerPartial('footer', footerHtml);
     const template = handlebars.compile(templateHtml);
-
-    // Combine both templateBodyData and templateData
+    
     const finalHtml = template({ ...templateBodyData, ...templateData });
     await fs.writeFile('finalTemplate.html', finalHtml, 'utf8');
-
-    // Launch Puppeteer in non-headless mode (Chrome will open)
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
     await page.goto(`file://${path.join(__dirname, 'finalTemplate.html')}`, { waitUntil: 'networkidle0' });
@@ -33,9 +30,7 @@ const { templateBodyData, templateData } = require('./mockData');
 
     console.log("PDF generated and saved at:", downloadsPath);
 
-    // Keep the browser open
-    // Comment out the next line if you don't want the browser to close automatically.
-    // await browser.close();
+    
 })();
 
 
