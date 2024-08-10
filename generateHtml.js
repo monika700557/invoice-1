@@ -2,6 +2,9 @@ const puppeteer = require('puppeteer');
 const fs = require('fs-extra');
 const handlebars = require('handlebars');
 const path = require('path');
+const os = require('os');
+
+const { templateBodyData, templateData } = require('./mockData');
 
 (async () => {
 
@@ -16,17 +19,24 @@ const path = require('path');
     handlebars.registerPartial('header', headerHtml);
     handlebars.registerPartial('footer', footerHtml);
     const template = handlebars.compile(templateHtml);
-    const finalHtml = template({});
+
+    // Combine both templateBodyData and templateData
+    const finalHtml = template({ ...templateBodyData, ...templateData });
     await fs.writeFile('finalTemplate.html', finalHtml, 'utf8');
 
+    // Launch Puppeteer in non-headless mode (Chrome will open)
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
     await page.goto(`file://${path.join(__dirname, 'finalTemplate.html')}`, { waitUntil: 'networkidle0' });
-    console.log("Ruunning")
+    const downloadsPath = path.join(os.homedir(), 'Downloads', 'invoice.pdf');
+    await page.pdf({ path: downloadsPath, format: 'A4' });
+
+    console.log("PDF generated and saved at:", downloadsPath);
+
+    // Keep the browser open
+    // Comment out the next line if you don't want the browser to close automatically.
+    // await browser.close();
 })();
-
-
-
 
 
 

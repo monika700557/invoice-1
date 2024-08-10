@@ -2,9 +2,9 @@ body {
     font-family: "Segoe UI";
     margin: 0;
     padding: 0;
-    max-width: 100%;
+    min-width: 100%;
     background-color: #f8f8f8;
-    font-size: 12px;
+    font-size: 11px;
 }
 
 img.rect {
@@ -18,9 +18,6 @@ p {
     display: block;
     margin-block-start: auto;
 }
-
-
-
 .logo {
     width: 100px;
 }
@@ -33,7 +30,7 @@ p {
     width: 100%;
 }
 tr#first-row {
-    border-bottom: 3px solid #bfc3c5;
+    border-bottom: 1px solid #bfc3c5;
 }
 .customer-info {
     margin-bottom: 20px;
@@ -53,11 +50,10 @@ tr#first-row {
 .invoice-table {
     min-width: 100%;
     border-collapse: collapse;
-    border: 4px solid #0f6e95;
+    border: 3px solid #0f6e95;
     text-align: left;
     margin: auto;
-    max-height: 100vh;
-    margin-top: -1rem;
+    max-height: 90vh;
 
 }
 
@@ -109,8 +105,8 @@ img#logo {
     display: flex;
     flex-direction: row;
     top: 5rem;
-    margin-top: 4rem;
-    gap: 3rem;
+    margin-top: 1.5rem;
+    gap: 2rem;
     text-align: left;
     margin-left: 5rem;
 }
