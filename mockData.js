@@ -14,12 +14,15 @@ let templateBodyData = {
 };
 
 
+
+
+
 let templateData = {
     convert: true,
-    title: "Invoice",
-    po_no: "INV-12345",
+    title: "PGSCO -0001",
+    trn_no: "1234567810",
     organization_name: "My Company",
-    time: new Date().toLocaleString(),
+    time: new Date("03/07/2022 : 09:00:00").toLocaleString(),
     organization_logo: "path/to/logo.png",
     name: "John Doe",
     orgAddress: "1234 Street, City, Country",
@@ -28,8 +31,8 @@ let templateData = {
     barcode: "path/to/barcode.png",
     SupplierName: "Supplier Inc.",
     address: "5678 Supplier St, City, Country",
-    call: "+1234567890",
-    email: "supplier@example.com",
+    call: "  + 66 099-ccm-1234",
+    email: "lisa@gmail.com",
     taxid: "TAXID12345",
     location_name: "Main Office",
     filllocation: "Warehouse",
@@ -37,7 +40,10 @@ let templateData = {
     orderDate: "08/01/2024",
     orderDateTime: "08/01/2024 : 22.00",
     delivery_date: "08/10/2024 : 10:30:00",
-    user: "John Doe"
+    account: "Cus-0003",
+    sku:"LEO-R1",
+    custmorName:"Lisa Blackpink"
+
 };
 
 module.exports = { templateBodyData, templateData };
