@@ -15,6 +15,7 @@ const { templateBodyData, templateData } = require('./mockData');
     const templateHtml = await fs.readFile(templatePath, 'utf8');
     const headerHtml = await fs.readFile(headerPath, 'utf8');
     const footerHtml = await fs.readFile(footerPath, 'utf8');
+    
 
     handlebars.registerPartial('header', headerHtml);
     handlebars.registerPartial('footer', footerHtml);
